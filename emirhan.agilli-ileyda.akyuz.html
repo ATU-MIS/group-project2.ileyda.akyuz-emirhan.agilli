@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Twins Rent | Kurumsal Araç Kiralama</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f5f6f8;
+            scroll-behavior: smooth;
+            color: #333;
+        }
+
+        nav {
+            background-color: #0f2a44;
+            padding: 14px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 18px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        nav a:hover { text-decoration: underline; }
+
+        header {
+            background: linear-gradient(120deg, #0f2a44, #1f5f8b);
+            color: white;
+            padding: 110px 20px;
+            text-align: center;
+        }
+        header h1 { font-size: 48px; margin-bottom: 12px; }
+        header p {
+            font-size: 18px;
+            max-width: 720px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        section { padding: 70px 20px; }
+        .container { max-width: 1150px; margin: auto; }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 45px;
+            color: #0f2a44;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background-color: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-6px); }
+        .card h3 { margin-bottom: 10px; }
+        .price { font-size: 18px; font-weight: bold; color: #1f5f8b; }
+
+        .dark { background-color: #eef2f6; }
+
+        form {
+            background-color: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            max-width: 520px;
+            margin: auto;
+        }
+        form input, form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+        }
+        form button {
+            width: 100%;
+            padding: 14px;
+            background-color: #0f2a44;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        form button:hover { background-color: #0b2035; }
+
+        .summary {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e6f0fa;
+            border-radius: 8px;
+            display: none;
+        }
+
+        footer {
+            background-color: #0f2a44;
+            color: white;
+            padding: 40px 20px;
+        }
+        footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        footer h4 { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#home">Ana Sayfa</a>
+    <a href="#cars">Araç Filosu</a>
+    <a href="#why">Kurumsal Avantajlar</a>
+    <a href="#contact">Rezervasyon Talebi</a>
+</nav>
+
+<header id="home">
+    <h1>Twins Rent</h1>
+    <p>Türkiye genelinde bireysel ve kurumsal müşteriler için güvenilir, şeffaf ve profesyonel araç kiralama çözümleri sunuyoruz.</p>
+</header>
+
+<section id="cars" class="container">
+    <h2>Araç Filomuz</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Ekonomik Segment</h3>
+            <p>Yakıt tasarruflu, şehir içi kullanım için ideal araçlar.</p>
+            <div class="price" data-price="900">₺900 / Gün</div>
+        </div>
+        <div class="card">
+            <h3>SUV Segment</h3>
+            <p>Geniş iç hacim ve uzun yol konforu.</p>
+            <div class="price" data-price="1600">₺1600 / Gün</div>
+        </div>
+        <div class="card">
+            <h3>Premium Segment</h3>
+            <p>Üst segment, maksimum sürüş deneyimi.</p>
+            <div class="price" data-price="2500">₺2500 / Gün</div>
+        </div>
+    </div>
+</section>
+
+<section id="why" class="dark">
+    <div class="container">
+        <h2>Kurumsal Avantajlarımız</h2>
+        <div class="cards">
+            <div class="card">7/24 Profesyonel Destek</div>
+            <div class="card">Periyodik Bakımlı Araçlar</div>
+            <div class="card">Kapsamlı Sigorta Seçenekleri</div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="container">
+    <h2>Rezervasyon Talep Formu</h2>
+    <form id="reservationForm">
+        <input type="text" placeholder="Ad Soyad" required>
+        <input type="email" placeholder="E-posta" required>
+
+        <select id="carType" required>
+            <option value="">Araç Segmenti Seçin</option>
+            <option value="900">Ekonomik</option>
+            <option value="1600">SUV</option>
+            <option value="2500">Premium</option>
+        </select>
+
+        <input type="date" id="startDate" required>
+        <input type="date" id="endDate" required>
+
+        <button type="submit">Talep Oluştur</button>
+        <div class="summary" id="summary"></div>
+    </form>
+</section>
+
+<footer>
+    <div class="container">
+        <div>
+            <h4>Twins Rent</h4>
+            <p>Kurumsal Araç Kiralama</p>
+        </div>
+        <div>
+            <h4>İletişim</h4>
+            <p>info@twinsrent.com</p>
+            <p>+90 212 000 00 00</p>
+        </div>
+        <div>
+            <h4>Lokasyon</h4>
+            <p>İstanbul / Türkiye</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("reservationForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const pricePerDay = Number(document.getElementById("carType").value);
+        const start = new Date(document.getElementById("startDate").value);
+        const end = new Date(document.getElementById("endDate").value);
+
+        if (end <= start) {
+            alert("Bitiş tarihi başlangıçtan sonra olmalıdır!");
+            return;
+        }
+
+        const days = (end - start) / (1000 * 60 * 60 * 24);
+        const total = days * pricePerDay;
+
+        const summary = document.getElementById("summary");
+        summary.style.display = "block";
+        summary.innerHTML = `
+            <strong>Talep Özeti</strong><br>
+            Kiralama Süresi: ${days} gün<br>
+            Günlük Ücret: ₺${pricePerDay}<br>
+            <strong>Toplam Tutar: ₺${total}</strong>
+        `;
+    });
+</script>
+
+</body>
+</html>
